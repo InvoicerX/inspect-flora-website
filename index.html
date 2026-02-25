@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inspect Flora — Identify Plants Instantly</title>
+
+  <meta name="description" content="Inspect Flora helps you identify plants instantly from a photo. Save results, build a plant journal, and set watering reminders — simple, fast, and private." />
+  <meta name="keywords" content="plant identifier, plant identification, leaf scan, plant journal, plant care reminders, flora detection" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Inspect Flora — Identify Plants Instantly" />
+  <meta property="og:description" content="Snap a photo, identify a plant, save it to your gallery, keep a journal, and set care reminders." />
+  <meta property="og:type" content="website" />
+  <!-- TODO: set real og:image -->
+  <meta property="og:image" content="assets/og-image.png" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icon-180.png" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand-mini">
+        <img src="assets/logo.png" alt="Inspect Flora logo" class="brand-mini-logo" onerror="this.style.display='none'"/>
+        <span class="brand-mini-text" data-translate="brandMini">Inspect Flora</span>
+      </div>
+
+      <div class="topbar-actions">
+        <!-- Language placeholder (you’ll wire later) -->
+        <button class="ghost-btn" id="language-btn" aria-haspopup="true" aria-expanded="false">
+          🌐 <span data-translate="languageBtn">Language</span>
+        </button>
+        <button class="primary-btn small" id="download-btn-top">
+          <span data-translate="downloadTop">Get the App</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="pill">
+          <span class="dot"></span>
+          <span data-translate="pillText">LeafScan • Plant Detection in the Wild</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-translate="heroTitleLine1">Identify Any Plant</span>
+          <span class="accent" data-translate="heroTitleLine2">Instantly</span>
+        </h1>
+
+        <p class="hero-subtitle" data-translate="heroSubtitle">
+          Snap a photo, get an instant match, and save it to your gallery. Keep notes, track plant care, and set reminders — all in one clean app.
+        </p>
+
+        <div class="hero-cta">
+          <a class="primary-btn" href="#download" id="download-btn-hero">
+            <span data-translate="heroCtaPrimary">Download for Android</span>
+          </a>
+
+          <button class="secondary-btn" id="watch-trailer-btn">
+            ▶ <span data-translate="heroCtaSecondary">Watch Trailer</span>
+          </button>
+        </div>
+
+        <div class="hero-badges">
+          <div class="badge">
+            <span class="badge-ic">🔒</span>
+            <div class="badge-txt">
+              <div class="badge-title" data-translate="badgePrivacyTitle">Privacy-first</div>
+              <div class="badge-sub" data-translate="badgePrivacySub">Your saved data stays on your device</div>
+            </div>
+          </div>
+          <div class="badge">
+            <span class="badge-ic">⚡</span>
+            <div class="badge-txt">
+              <div class="badge-title" data-translate="badgeFastTitle">Fast results</div>
+              <div class="badge-sub" data-translate="badgeFastSub">Built for quick field identification</div>
+            </div>
+          </div>
+          <div class="badge">
+            <span class="badge-ic">🪴</span>
+            <div class="badge-txt">
+              <div class="badge-title" data-translate="badgeJournalTitle">Plant Journal</div>
+              <div class="badge-sub" data-translate="badgeJournalSub">Notes + care schedule in one place</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero visual -->
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <div class="hero-card-brand">
+              <span class="leaf"></span>
+              <span data-translate="heroCardTitle">Inspect Flora</span>
+            </div>
+            <div class="hero-card-tag" data-translate="heroCardTag">Plant Match</div>
+          </div>
+
+          <div class="hero-card-body">
+            <div class="mock-screen">
+              <img
+                src="Logo.png"
+                alt="Inspect Flora app preview"
+                class="mock-img"
+                loading="lazy"
+                onerror="this.classList.add('mock-fallback'); this.removeAttribute('src');"/>
+              <div class="mock-overlay">
+                <div class="mock-line" data-translate="mockLine1">Common name:</div>
+                <div class="mock-value" data-translate="mockValue1">Hibiscus</div>
+
+                <div class="mock-line" data-translate="mockLine2">Scientific:</div>
+                <div class="mock-value" data-translate="mockValue2">Hibiscus rosa-sinensis</div>
+
+                <div class="mock-meter">
+                  <div class="mock-meter-fill"></div>
+                </div>
+                <div class="mock-meter-label" data-translate="mockMeterLabel">Confidence: 95%</div>
+              </div>
+            </div>
+
+            <div class="hero-card-actions">
+              <button class="primary-btn small" id="open-camera-demo">
+                📷 <span data-translate="openCameraBtn">Open Camera</span>
+              </button>
+              <button class="ghost-btn small" id="view-gallery-demo">
+                🖼️ <span data-translate="viewGalleryBtn">View Gallery</span>
+              </button>
+            </div>
+
+            <div class="mini-note" data-translate="heroMiniNote">
+              Tip: Save a plant and add notes — your Logs will automatically show entries with notes.
+            </div>
+          </div>
+        </div>
+
+        <div class="glow-orbs" aria-hidden="true"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST / STATS -->
+  <section class="strip">
+    <div class="container strip-grid">
+      <div class="strip-item">
+        <div class="strip-num" data-translate="strip1Num">1 photo</div>
+        <div class="strip-txt" data-translate="strip1Txt">to identify a plant</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num" data-translate="strip2Num">Journal</div>
+        <div class="strip-txt" data-translate="strip2Txt">notes + care schedule</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num" data-translate="strip3Num">Reminders</div>
+        <div class="strip-txt" data-translate="strip3Txt">watering notifications</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num" data-translate="strip4Num">Gallery</div>
+        <div class="strip-txt" data-translate="strip4Txt">saved inspections</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-translate="featuresTitle">Everything you need to identify and care for plants</h2>
+        <p data-translate="featuresSubtitle">
+          Inspect Flora is built for speed outdoors, clarity at home, and organization over time.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-ic">🌿</div>
+          <h3 data-translate="f1Title">Instant plant identification</h3>
+          <p data-translate="f1Text">
+            Take a photo and get a match with scientific details, genus, family, synonyms, and confidence score.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-ic">💾</div>
+          <h3 data-translate="f2Title">Save to Gallery</h3>
+          <p data-translate="f2Text">
+            Save inspection results with timestamps so you can revisit them later and build your personal collection.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-ic">📝</div>
+          <h3 data-translate="f3Title">Notes + Logs</h3>
+          <p data-translate="f3Text">
+            Add notes to any saved plant. Notes automatically appear in Logs, so the most important records are always easy to find.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-ic">📓</div>
+          <h3 data-translate="f4Title">Plant Journal</h3>
+          <p data-translate="f4Text">
+            Track watering intervals, repotting months, fertilizing months, and a custom reminder time for each entry.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-ic">🔔</div>
+          <h3 data-translate="f5Title">Watering reminders</h3>
+          <p data-translate="f5Text">
+            Schedule a reminder with your preferred time. The app will notify you when it’s time to water.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-ic">🔒</div>
+          <h3 data-translate="f6Title">Privacy by default</h3>
+          <p data-translate="f6Text">
+            Your saved plants and journal entries are stored locally on your device, giving you simple privacy and full control.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section alt" id="how">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-translate="howTitle">How it works</h2>
+        <p data-translate="howSubtitle">A simple flow designed for real life: outdoors, quick, and reliable.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3 data-translate="how1Title">Open the camera</h3>
+            <p data-translate="how1Text">Tap “Open Camera” and capture a clear photo of a leaf, flower, or plant part.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3 data-translate="how2Title">Inspect the result</h3>
+            <p data-translate="how2Text">View common name, scientific name, family, genus, synonyms, and confidence score.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3 data-translate="how3Title">Save + add notes</h3>
+            <p data-translate="how3Text">Save it to your gallery and add notes. Entries with notes automatically show up in Logs.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3 data-translate="how4Title">Track care in Journal</h3>
+            <p data-translate="how4Text">Create journal entries with watering intervals and schedule reminders at a time you choose.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="section" id="screenshots">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-translate="shotsTitle">Screenshots</h2>
+        <p data-translate="shotsSubtitle">Clean UI, dark mode, and quick actions — built for mobile.</p>
+      </div>
+
+      <div class="shots-grid">
+        <figure class="shot">
+          <img src="za chat gpt FLORA.png" alt="Inspect result screen" data-index="0" loading="lazy" onerror="this.src='assets/placeholder-shot.png'" />
+          <figcaption data-translate="shot1Cap">Instant identification results</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="hibiscus.png" alt="Saved gallery" data-index="1" loading="lazy" onerror="this.src='assets/placeholder-shot.png'" />
+          <figcaption data-translate="shot2Cap">Gallery of saved plants</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="oak tree.png" alt="Plant journal" data-index="2" loading="lazy" onerror="this.src='assets/placeholder-shot.png'" />
+          <figcaption data-translate="shot3Cap">Plant Journal entries</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="ghost orchid.png" alt="Logs with notes" data-index="3" loading="lazy" onerror="this.src='assets/placeholder-shot.png'" />
+          <figcaption data-translate="shot4Cap">Logs for plants with notes</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section alt" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <h2 data-translate="faqTitle">FAQ</h2>
+        <p data-translate="faqSubtitle">Quick answers to common questions.</p>
+      </div>
+
+      <div class="faq">
+        <details class="faq-item" open>
+          <summary data-translate="faq1Q">Does Inspect Flora work offline?</summary>
+          <p data-translate="faq1A">
+            Identification requires an internet connection to fetch results, but your saved Gallery, Logs, and Journal entries remain available on your device.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-translate="faq2Q">What details do I get after identification?</summary>
+          <p data-translate="faq2A">
+            You’ll see common and scientific names, family, genus, synonyms, confidence score, and the inspection timestamp.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-translate="faq3Q">Can I store notes for each plant?</summary>
+          <p data-translate="faq3A">
+            Yes. Add notes to any saved plant. Entries with notes automatically appear inside Logs.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-translate="faq4Q">How do reminders work?</summary>
+          <p data-translate="faq4A">
+            Set an interval (days) and a reminder time. The app schedules a notification so you don’t forget watering.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="section" id="download">
+    <div class="container">
+      <div class="download-card">
+        <div class="download-left">
+          <h2 data-translate="dlTitle">Download Inspect Flora</h2>
+          <p data-translate="dlText">
+            Start identifying plants today. Save results, keep a journal, and track plant care with reminders.
+          </p>
+
+          <div class="download-actions">
+            <!-- TODO: put your real Google Play link -->
+            <a class="primary-btn" href="#" target="_blank" rel="noopener" id="play-link">
+              <span data-translate="dlBtn">Get it on Google Play</span>
+            </a>
+
+            <a class="ghost-btn" href="#features">
+              <span data-translate="dlAltBtn">Explore Features</span>
+            </a>
+          </div>
+
+          <div class="fineprint" data-translate="dlFineprint">
+            Tip: Use clear photos with good lighting for better results.
+          </div>
+        </div>
+
+        <div class="download-right">
+          <div class="qr">
+            <div class="qr-title" data-translate="qrTitle">Scan to install</div>
+            <img src="assets/qr.png" alt="QR code" onerror="this.style.display='none'"/>
+            <div class="qr-sub" data-translate="qrSub">Or use the Google Play button.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="leaf small"></span>
+          <strong data-translate="footerBrand">Inspect Flora</strong>
+        </div>
+        <p class="footer-txt" data-translate="footerText">
+          Identify plants, save your discoveries, and stay consistent with plant care.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#features" data-translate="footerLink1">Features</a>
+        <a href="#how" data-translate="footerLink2">How it works</a>
+        <a href="#screenshots" data-translate="footerLink3">Screenshots</a>
+        <a href="#faq" data-translate="footerLink4">FAQ</a>
+      </div>
+
+      <div class="footer-meta">
+        <div data-translate="footerCopy">© 2026 Inspect Flora. All rights reserved.</div>
+        <div class="footer-sub" data-translate="footerDev">Developed by Alen K.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Trailer Modal -->
+  <div id="video-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="close-modal" aria-label="Close">✕</button>
+      <div class="modal-title" data-translate="modalTrailerTitle">Inspect Flora — Trailer</div>
+      <div class="ratio">
+        <iframe
+          id="youtube-video"
+          src=""
+          title="Inspect Flora Trailer"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="modal-hint" data-translate="modalHint">
+        You can replace the video ID inside script.js whenever you upload a new trailer.
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-nav prev" id="prev-btn" aria-label="Previous">‹</button>
+    <img id="lightbox-img" alt="Screenshot preview" />
+    <button class="lightbox-nav next" id="next-btn" aria-label="Next">›</button>
+  </div>
+
+  <button id="toTopBtn" class="toTop" title="Go to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
