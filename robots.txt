@@ -1,10 +1,8 @@
 User-agent: *
 Allow: /
 
-# Block GitHub-specific system paths
 Disallow: /404.html
 Disallow: /LICENSE
 Disallow: /README.md
 
-# Link to sitemap
 Sitemap: https://invoicerx.github.io/inspect-flora-website/sitemap.xml

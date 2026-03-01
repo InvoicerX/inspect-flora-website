@@ -9,24 +9,11 @@
   </url>
 
   <url>
-    <loc>https://invoicerx.github.io/inspect-flora-website/privacy-policy.html</loc>
+    <loc>https://invoicerx.github.io/inspect-flora-website/privacy.html</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <url>
-    <loc>https://invoicerx.github.io/inspect-flora-website/user-manual.html</loc>
-    <lastmod>2026-02-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://invoicerx.github.io/inspect-flora-website/contact.html</loc>
-    <lastmod>2026-02-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
 
 </urlset>
