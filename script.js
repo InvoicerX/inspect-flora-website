@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const iframe = document.getElementById("youtube-video");
 
   // TODO: Replace with your Inspect Flora trailer ID when ready
-  const VIDEO_ID = "Vz3xEaUKc18"; // placeholder
+  const VIDEO_ID = "bWq-qZ59Y9k";
   const videoUrl = `https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0&modestbranding=1`;
 
   function openModal() {
